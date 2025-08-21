@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+List<String> TopsList = [];
+
 class closetHome extends StatefulWidget {
   const closetHome({super.key});
 
@@ -15,7 +17,8 @@ class closetHomeState extends State<closetHome> {
       child: Scaffold(
         appBar: AppBar(
           toolbarHeight: 100,
-          title: const Text("Closet App"),centerTitle: true,
+          title: const Text("Closet App"),
+          centerTitle: true,
           bottom: const TabBar(
             tabs: [
               Tab(icon: ImageIcon(AssetImage('images/topsIcon.png'))),
@@ -26,12 +29,12 @@ class closetHomeState extends State<closetHome> {
           ),
           backgroundColor: Colors.brown[100],
         ),
-        body: const TabBarView(
-          children: [
-            Page1(),
-            Page2(),
-            Page3(),
-          ],
+        body: const TabBarView(children: [Page1(), Page2(), Page3()]),
+        floatingActionButton: FloatingActionButton(
+          onPressed: () {
+            showDialog(context: context, builder: (context) {});
+          },
+          child: const Icon(Icons.add),
         ),
       ),
     );
@@ -43,9 +46,7 @@ class Page1 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Text('Page 1', style: TextStyle(fontSize: 24)),
-    );
+    return Center(child: Text('Page 1', style: TextStyle(fontSize: 24)));
   }
 }
 
@@ -54,9 +55,7 @@ class Page2 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Text('Page 2', style: TextStyle(fontSize: 24)),
-    );
+    return Center(child: Text('Page 2', style: TextStyle(fontSize: 24)));
   }
 }
 
@@ -65,14 +64,10 @@ class Page3 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Text('Page 3', style: TextStyle(fontSize: 24)),
-    );
+    return Center(child: Text('Page 3', style: TextStyle(fontSize: 24)));
   }
 }
 
 void main() {
-  runApp(const MaterialApp(
-    home: closetHome(),
-  ));
+  runApp(const MaterialApp(home: closetHome()));
 }
